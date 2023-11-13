@@ -18,7 +18,11 @@ public class Humain {
 	public int getQuantiteArgent() {
 		return quantiteArgent;
 	}
-	private void parler(String texte) {
+	public void setQuantiteArgent(int quantiteArgent) {
+		this.quantiteArgent = quantiteArgent;
+	}
+	
+	public void parler(String texte) {
 		System.out.println(nom +":"+ texte);
 	}
 	
@@ -37,9 +41,12 @@ public class Humain {
 		quantiteArgent += gain;
 	}
 	public void acheter(String bien , int prix) {
-		assert(prix<=getQuantiteArgent());
-		parler("jai " +quantiteArgent + "je vais pouvoir m'acheter" + bien + "a" +prix+"sous");
-		perdreArgent(prix);
+		if(prix<=getQuantiteArgent()) {
+		parler(" jai " +quantiteArgent + " je vais pouvoir m'acheter " + bien + " a " +prix+" sous ");
+		perdreArgent(prix);}
+		else {
+			parler(" Je n'ai plus que  " +quantiteArgent + " Je ne peux même pas m'offrir " + bien + " a " +prix+" sous");
+		}
 	}
 	
 	
